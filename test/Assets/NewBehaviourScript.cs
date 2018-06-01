@@ -4,34 +4,26 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour {
 
-    float coffee_tempeture = 87.0f;
-    float hot_lim = 60.0f;
-    float cold_lim = 10.0f;
-
     void Awake()
     {
-        Debug.Log("Awake called.");
+        
     }
     // Use this for initialization
     void Start () {
-        Debug.Log("HELLO");
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if(GameObject.Find("Sphere").transform.position.x <= 500 )
         if (Input.GetKey ("w"))
-            GameObject.Find("spere").transform.position += new Vector3(0, 0, 0.5f);
+            GameObject.Find("Sphere").transform.position += new Vector3(0, 0, 5);
         if (Input.GetKey ("s"))
-            GameObject.Find("spere").transform.position += new Vector3(0, 0, -0.5f);
-
+            GameObject.Find("Sphere").transform.position += new Vector3(0, 0, -5);
+        if (Input.GetKey("a"))
+            GameObject.Find("Sphere").transform.position += new Vector3(5, 0, 0);
+        if (Input.GetKey("d"))
+            GameObject.Find("Sphere").transform.position += new Vector3(-5, 0, 0);
     }
-    void test()
-    {
-        if (coffee_tempeture >= hot_lim)
-            Debug.Log("HOT");
-        else if (coffee_tempeture < cold_lim)
-            Debug.Log("COLD");
-        else
-            Debug.Log("NICE");
-    }
+    
 }
